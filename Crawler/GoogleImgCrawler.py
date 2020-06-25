@@ -39,10 +39,10 @@ class GoogleImgCrawler:
                     self.selenium.driver.find_element_by_xpath('//body').send_keys(Keys.CONTROL + Keys.END)
                     time.sleep(0.5)
 
-        minusVal = 2
+        minusVal = 0
 
         # 이미지 클릭
-        for c in range(106, photoCount+1):
+        for c in range(1, photoCount+1):
 
             self.selenium.buttonClick('//*[@id="islrg"]/div[1]/div['+ str(c) +']')
 
@@ -60,7 +60,7 @@ class GoogleImgCrawler:
                         break
 
                 src = imgSRC[5:-1]
-                urlretrieve(src, search+'/female'+str(c-minusVal)+'.png')
+                urlretrieve(src, search+'/male'+str(c-minusVal)+'.png')
             except:
                 minusVal += 1
 
